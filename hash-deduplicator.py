@@ -29,7 +29,10 @@ try:
 			file_curr = file_lines[line].replace('\n', '')
 			file_next = file_lines[line +1].replace('\n', '')
 
-			if file_curr.split(' ')[0] == file_next.split(' ')[0]:
+			equal_hashes = file_curr.split(' ')[0] == file_next.split(' ')[0]
+			different_files = file_curr.split(' ')[-1] != file_next.split(' ')[-1]
+
+			if equal_hashes and different_files:
 				file_equal += 1
 
 				if file_curr not in duplicates:
